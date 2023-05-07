@@ -16,21 +16,21 @@ const FontMenu = ({ changeInput, font, setFont }: Props): JSX.Element => {
       <h3
         className={`text-[18px] ${
           changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-        } leading-[24px] font-bold cursor-pointer`}
+        } leading-[24px] font-bold cursor-pointer hover:text-[#A445ED]`}
       >
         Sans Serif
       </h3>
       <h3
         className={`text-[18px] ${
           changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-        } leading-[24px] font-bold cursor-pointer`}
+        } leading-[24px] font-bold cursor-pointer hover:text-[#A445ED]`}
       >
         Serif
       </h3>
       <h3
         className={`text-[18px] ${
           changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-        } leading-[24px] font-bold cursor-pointer`}
+        } leading-[24px] font-bold cursor-pointer hover:text-[#A445ED]`}
       >
         Mono
       </h3>

@@ -17,12 +17,12 @@ const HeaderComponent = ({
   const HandleClick = () => {
     setChangeInput(!changeInput);
   };
-  const [font, setFont] = useState<boolean>(true);
+  const [font, setFont] = useState<boolean>(false);
   const ClickFont = () => {
     setFont(!font);
   };
   return (
-    <div className="w-full flex flex-row justify-between items-center">
+    <div className="w-full flex flex-row justify-between items-center mb-[24px] max-w-[736px]">
       <img
         className="w-[28.05px] h-[32px]"
         src={logoDictionary}
