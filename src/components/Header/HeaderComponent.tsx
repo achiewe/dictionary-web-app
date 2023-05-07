@@ -1,16 +1,25 @@
-import logoDictionary from "../images/logo.svg";
-import ArrowDownSvg from "../images/icon-arrow-down.svg";
-import MoonSvgLight from "../images/icon-moonLight.svg";
-import MoonSvgDark from "../images/icon-moonDark.svg";
+import logoDictionary from "../../images/logo.svg";
+import ArrowDownSvg from "../../images/icon-arrow-down.svg";
+import MoonSvgLight from "../../images/icon-moonLight.svg";
+import MoonSvgDark from "../../images/icon-moonDark.svg";
+import FontMenu from "./FontMenu";
+import { useState } from "react";
 
 interface Props {
   changeInput: boolean;
   setChangeInput(changeInput: boolean): void;
 }
 
-const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
+const HeaderComponent = ({
+  changeInput,
+  setChangeInput,
+}: Props): JSX.Element => {
   const HandleClick = () => {
     setChangeInput(!changeInput);
+  };
+  const [font, setFont] = useState<boolean>(true);
+  const ClickFont = () => {
+    setFont(!font);
   };
   return (
     <div className="w-full flex flex-row justify-between items-center">
@@ -20,7 +29,10 @@ const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
         alt="logo dictionary"
       />
       <div className="flex flex-row gap-[16px] items-center">
-        <div className="flex flex-row gap-[16px] items-center">
+        <div
+          onClick={ClickFont}
+          className="flex flex-row gap-[16px] items-center cursor-pointer"
+        >
           <h3
             className={`text-[14px] font-bold leading-[24px] ${
               changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
@@ -29,6 +41,7 @@ const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
             Serif
           </h3>
           <img src={ArrowDownSvg} alt="arrow svg" />
+          <FontMenu changeInput={changeInput} font={font} setFont={setFont} />
         </div>
         <div className="w-[1px] h-[32px] bg-[#E9E9E9]"> </div>
         <div className="flex flex-row gap-[12px] items-center">
@@ -51,4 +64,4 @@ const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
   );
 };
 
-export default Header;
+export default HeaderComponent;
