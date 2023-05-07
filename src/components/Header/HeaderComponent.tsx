@@ -41,7 +41,7 @@ const HeaderComponent = ({
             Serif
           </h3>
           <img src={ArrowDownSvg} alt="arrow svg" />
-          <FontMenu changeInput={changeInput} font={font} setFont={setFont} />
+          <FontMenu changeInput={changeInput} font={font} />
         </div>
         <div className="w-[1px] h-[32px] bg-[#E9E9E9]"> </div>
         <div className="flex flex-row gap-[12px] items-center">

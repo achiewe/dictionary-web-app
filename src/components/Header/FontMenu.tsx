@@ -1,7 +1,6 @@
 interface Props {
   changeInput: boolean;
   font: boolean;
-  setFont(font: boolean): void;
 }
 
 const FontMenu = ({ changeInput, font }: Props): JSX.Element => {
