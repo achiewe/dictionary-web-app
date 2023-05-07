@@ -1,6 +1,7 @@
 import logoDictionary from "../images/logo.svg";
 import ArrowDownSvg from "../images/icon-arrow-down.svg";
-import MoonSvg from "../images/icon-moon.svg";
+import MoonSvgLight from "../images/icon-moonLight.svg";
+import MoonSvgDark from "../images/icon-moonDark.svg";
 
 interface Props {
   changeInput: boolean;
@@ -20,12 +21,22 @@ const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
       />
       <div className="flex flex-row gap-[16px] items-center">
         <div className="flex flex-row gap-[16px] items-center">
-          <h3 className="text-[14px] font-bold leading-[24px]"> Serif</h3>
+          <h3
+            className={`text-[14px] font-bold leading-[24px] ${
+              changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
+            }`}
+          >
+            Serif
+          </h3>
           <img src={ArrowDownSvg} alt="arrow svg" />
         </div>
         <div className="w-[1px] h-[32px] bg-[#E9E9E9]"> </div>
         <div className="flex flex-row gap-[12px] items-center">
-          <label className="tablet:ml-[1.625rem] relative inline-block w-[40px] h-[20px] bg-[#757575] rounded-[10px]">
+          <label
+            className={`tablet:ml-[1.625rem] relative inline-block w-[40px] h-[20px] ${
+              changeInput ? "bg-[#757575]" : "bg-[#A445ED]"
+            } rounded-[10px]`}
+          >
             <input
               className="peer opacity-0 w-0 h-0"
               type="checkbox"
@@ -34,7 +45,7 @@ const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
             <span className="absolute cursor-pointer inset-0 rounded-[10px] bg-gray dark:bg-purple before:absolute before:content-[''] before:h-[14px] before:w-[14px] before:rounded-full before:left-[3px] before:bottom-[3px] before:bg-white peer-focus-visible:bg-violet-500 peer-checked:before:translate-x-[20px] before:transition-all"></span>
           </label>
         </div>
-        <img src={MoonSvg} alt="moon svg" />
+        <img src={changeInput ? MoonSvgLight : MoonSvgDark} alt="moon svg" />
       </div>
     </div>
   );
