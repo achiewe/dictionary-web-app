@@ -1,4 +1,3 @@
-import { ProfilerProps } from "react";
 import SearchSvg from "../images/icon-search.svg";
 
 interface Props {

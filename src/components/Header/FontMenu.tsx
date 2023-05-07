@@ -4,7 +4,7 @@ interface Props {
   setFont(font: boolean): void;
 }
 
-const FontMenu = ({ changeInput, font, setFont }: Props): JSX.Element => {
+const FontMenu = ({ changeInput, font }: Props): JSX.Element => {
   return (
     <div
       className={`w-[183px] h-[152px] rounded-[16px] ${
