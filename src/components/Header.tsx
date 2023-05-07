@@ -1,7 +1,16 @@
 import logoDictionary from "../images/logo.svg";
 import ArrowDownSvg from "../images/icon-arrow-down.svg";
+import MoonSvg from "../images/icon-moon.svg";
 
-const Header = (): JSX.Element => {
+interface Props {
+  changeInput: boolean;
+  setChangeInput(changeInput: boolean): void;
+}
+
+const Header = ({ changeInput, setChangeInput }: Props): JSX.Element => {
+  const HandleClick = () => {
+    setChangeInput(!changeInput);
+  };
   return (
     <div className="w-full flex flex-row justify-between items-center">
       <img
@@ -16,8 +25,16 @@ const Header = (): JSX.Element => {
         </div>
         <div className="w-[1px] h-[32px] bg-[#E9E9E9]"> </div>
         <div className="flex flex-row gap-[12px] items-center">
-          <input />
+          <label className="tablet:ml-[1.625rem] relative inline-block w-[40px] h-[20px] bg-[#757575] rounded-[10px]">
+            <input
+              className="peer opacity-0 w-0 h-0"
+              type="checkbox"
+              onClick={HandleClick}
+            />
+            <span className="absolute cursor-pointer inset-0 rounded-[10px] bg-gray dark:bg-purple before:absolute before:content-[''] before:h-[14px] before:w-[14px] before:rounded-full before:left-[3px] before:bottom-[3px] before:bg-white peer-focus-visible:bg-violet-500 peer-checked:before:translate-x-[20px] before:transition-all"></span>
+          </label>
         </div>
+        <img src={MoonSvg} alt="moon svg" />
       </div>
     </div>
   );
