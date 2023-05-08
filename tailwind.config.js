@@ -6,6 +6,11 @@ export default {
       dark: "0px 5px 30px #A445ED",
       light: "0px 5px 30px rgba(0, 0, 0, 0.1)",
     },
+    fontFamily: {
+      inter: ['"Inter"', "sans-serif"],
+      lora: ['"Lora"', "serif"],
+      mono: ['"Inconsolata"', "monospace"],
+    },
   },
   plugins: [],
 };

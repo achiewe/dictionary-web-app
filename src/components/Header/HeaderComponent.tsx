@@ -8,11 +8,15 @@ import { useState } from "react";
 interface Props {
   changeInput: boolean;
   setChangeInput(changeInput: boolean): void;
+  switchFont: number;
+  setSwitchFont(switchFont: number): void;
 }
 
 const HeaderComponent = ({
   changeInput,
   setChangeInput,
+  switchFont,
+  setSwitchFont,
 }: Props): JSX.Element => {
   const HandleClick = () => {
     setChangeInput(!changeInput);
@@ -31,17 +35,25 @@ const HeaderComponent = ({
       <div className="flex flex-row gap-[16px] items-center">
         <div
           onClick={ClickFont}
-          className="flex flex-row gap-[16px] items-center cursor-pointer"
+          className="flex flex-row relative gap-[16px] items-center cursor-pointer"
         >
           <h3
             className={`text-[14px] font-bold leading-[24px] ${
               changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
             }`}
           >
-            Serif
+            {switchFont === 1
+              ? "Sans-serif"
+              : switchFont === 2
+              ? "Serif"
+              : "Mono"}
           </h3>
           <img src={ArrowDownSvg} alt="arrow svg" />
-          <FontMenu changeInput={changeInput} font={font} />
+          <FontMenu
+            changeInput={changeInput}
+            font={font}
+            setSwitchFont={setSwitchFont}
+          />
         </div>
         <div className="w-[1px] h-[32px] bg-[#E9E9E9]"> </div>
         <div className="flex flex-row gap-[12px] items-center">
