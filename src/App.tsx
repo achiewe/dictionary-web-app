@@ -31,7 +31,11 @@ export default function App() {
         InputSearch={InputSearch}
         setInputSearch={setInputSearch}
       />
-      <Outcome saveInfo={saveInfo} setSaveInfo={setSaveInfo} />
+      <Outcome
+        saveInfo={saveInfo}
+        setSaveInfo={setSaveInfo}
+        InputSearch={InputSearch}
+      />
     </div>
   );
 }

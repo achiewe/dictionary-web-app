@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import OutcomeAchieve from "./Outcome/OutcomeAchieve";
 import OutcomeError from "./Outcome/OutcomeError";
 import axios from "axios";
@@ -6,24 +6,41 @@ import axios from "axios";
 interface Props {
   saveInfo: any;
   setSaveInfo(saveInfo: any): void;
+  InputSearch: string;
 }
 
-const Outcome = ({ saveInfo, setSaveInfo }: Props): JSX.Element => {
+const Outcome = ({
+  saveInfo,
+  setSaveInfo,
+  InputSearch,
+}: Props): JSX.Element => {
   useEffect(() => {
     const takeWord = async () => {
-      const response = await axios.get(
-        "https://api.dictionaryapi.dev/api/v2/entries/en/keyboard"
-      );
-      const data = response.data;
-      setSaveInfo(data);
-      console.log(saveInfo);
+      try {
+        const response = await axios.get(
+          "`https://api.dictionaryapi.dev/api/v2/entries/en/${InputSearch}`"
+        );
+        const data = response.data;
+        setSaveInfo(data);
+        console.log(saveInfo);
+        setShowDefinition(true);
+      } catch (error) {
+        setShowDefinition(false);
+      }
     };
-    takeWord();
-  }, []);
+    if (InputSearch !== "") {
+      takeWord();
+    }
+  }, [InputSearch]);
+
+  const [showDefinition, setShowDefinition] = useState<boolean | null>(null);
   return (
     <div>
-      <OutcomeAchieve />
-      <OutcomeError />
+      {showDefinition === true ? (
+        <OutcomeAchieve />
+      ) : showDefinition === false ? (
+        <OutcomeError />
+      ) : showDefinition === null ? null : null}
     </div>
   );
 };
