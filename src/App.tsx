@@ -7,6 +7,7 @@ export default function App() {
   const [changeInput, setChangeInput] = useState<boolean>(true);
   const [switchFont, setSwitchFont] = useState<number>(1);
   const [InputSearch, setInputSearch] = useState<string>("");
+  const [saveInfo, setSaveInfo] = useState<any>([]);
   return (
     <div
       className={`${
@@ -30,7 +31,7 @@ export default function App() {
         InputSearch={InputSearch}
         setInputSearch={setInputSearch}
       />
-      <Outcome />
+      <Outcome saveInfo={saveInfo} setSaveInfo={setSaveInfo} />
     </div>
   );
 }
