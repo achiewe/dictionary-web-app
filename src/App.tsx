@@ -12,7 +12,7 @@ export default function App() {
     <div
       className={`${
         changeInput ? "bg-[#FFFFFF]" : "bg-[#050505]"
-      } w-full min-h-screen flex-col flex justify-start items-center px-[24px] pt-[24px] pb-[84px] ${
+      } w-full min-h-screen flex-col flex justify-start items-center px-[24px] pt-[24px] pb-[84px] gap-[24px] ${
         switchFont === 1
           ? "font-inter"
           : switchFont === 2
@@ -35,6 +35,7 @@ export default function App() {
         saveInfo={saveInfo}
         setSaveInfo={setSaveInfo}
         InputSearch={InputSearch}
+        changeInput={changeInput}
       />
     </div>
   );

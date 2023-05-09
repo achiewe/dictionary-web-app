@@ -26,7 +26,7 @@ const HeaderComponent = ({
     setFont(!font);
   };
   return (
-    <div className="w-full flex flex-row justify-between items-center mb-[24px] max-w-[736px]">
+    <div className="w-full flex flex-row justify-between items-center max-w-[736px]">
       <img
         className="w-[28.05px] h-[32px]"
         src={logoDictionary}

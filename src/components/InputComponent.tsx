@@ -12,10 +12,11 @@ const InputComponent = ({
   InputSearch,
   setInputSearch,
 }: Props): JSX.Element => {
-  console.log(InputSearch);
   const [errorText, setErrorText] = useState<boolean>(true);
   return (
-    <div className={`flex flex-col items-start gap-[8px]`}>
+    <div
+      className={`flex flex-col items-center justify-center gap-[8px] w-full`}
+    >
       <form
         onSubmit={(e) => {
           setInputSearch(e.currentTarget.typeInput.value);
@@ -26,19 +27,20 @@ const InputComponent = ({
             setErrorText(true);
           }
         }}
-        className={`w-full flex flex-row py-[16px] px-[24px] ${
+        className={`w-full flex flex-row py-[16px] max-w-[736px] px-[24px] ${
           changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
-        } justify-between items-center rounded-[16px] h-[48px] max-w-[736px] ${
+        } justify-between items-center rounded-[16px] h-[48px] ${
           errorText
             ? "border-none"
             : "border-[1px] border-solid border-[#FF5252]"
         }`}
       >
         <input
+          autoComplete="off"
           id="typeInput"
           className={`${
             changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
-          } rounded-none outline-none text[16px] ${
+          } border-none outline-none text[16px] bg-none ${
             changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
           } leading-[20.48px] font-bold placeholder:opacity-[0.25]`}
           type="text"

@@ -7,22 +7,23 @@ interface Props {
   saveInfo: any;
   setSaveInfo(saveInfo: any): void;
   InputSearch: string;
+  changeInput: boolean;
 }
 
 const Outcome = ({
   saveInfo,
   setSaveInfo,
   InputSearch,
+  changeInput,
 }: Props): JSX.Element => {
   useEffect(() => {
     const takeWord = async () => {
       try {
         const response = await axios.get(
-          "`https://api.dictionaryapi.dev/api/v2/entries/en/${InputSearch}`"
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${InputSearch}`
         );
         const data = response.data;
         setSaveInfo(data);
-        console.log(saveInfo);
         setShowDefinition(true);
       } catch (error) {
         setShowDefinition(false);
@@ -32,15 +33,17 @@ const Outcome = ({
       takeWord();
     }
   }, [InputSearch]);
-
+  if (InputSearch !== "") {
+    console.log(saveInfo[0]);
+  }
   const [showDefinition, setShowDefinition] = useState<boolean | null>(null);
   return (
-    <div>
+    <div className="w-full flex flex-col">
       {showDefinition === true ? (
-        <OutcomeAchieve />
+        <OutcomeAchieve changeInput={changeInput} saveInfo={saveInfo} />
       ) : showDefinition === false ? (
         <OutcomeError />
-      ) : showDefinition === null ? null : null}
+      ) : null}
     </div>
   );
 };
