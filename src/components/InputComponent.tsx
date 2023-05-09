@@ -1,3 +1,4 @@
+import { useState } from "react";
 import SearchSvg from "../images/icon-search.svg";
 
 interface Props {
@@ -12,28 +13,47 @@ const InputComponent = ({
   setInputSearch,
 }: Props): JSX.Element => {
   console.log(InputSearch);
+  const [errorText, setErrorText] = useState<boolean>(true);
   return (
-    <form
-      onSubmit={(e) => {
-        setInputSearch(e.currentTarget.typeInput.value);
-        e.preventDefault();
-      }}
-      className={`w-full flex flex-row py-[16px] px-[24px] ${
-        changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
-      } justify-between items-center rounded-[16px] h-[48px] max-w-[736px]`}
-    >
-      <input
-        id="typeInput"
-        className={`${
+    <div className={`flex flex-col items-start gap-[8px]`}>
+      <form
+        onSubmit={(e) => {
+          setInputSearch(e.currentTarget.typeInput.value);
+          e.preventDefault();
+          if (e.currentTarget.typeInput.value === "") {
+            setErrorText(!errorText);
+          } else {
+            setErrorText(true);
+          }
+        }}
+        className={`w-full flex flex-row py-[16px] px-[24px] ${
           changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
-        } rounded-none outline-none text[16px] ${
-          changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-        } leading-[20.48px] font-bold placeholder:opacity-[0.25]`}
-        type="text"
-        placeholder="Search for any word…"
-      />
-      <img src={SearchSvg} alt="search svg" />
-    </form>
+        } justify-between items-center rounded-[16px] h-[48px] max-w-[736px] ${
+          errorText
+            ? "border-none"
+            : "border-[1px] border-solid border-[#FF5252]"
+        }`}
+      >
+        <input
+          id="typeInput"
+          className={`${
+            changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
+          } rounded-none outline-none text[16px] ${
+            changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
+          } leading-[20.48px] font-bold placeholder:opacity-[0.25]`}
+          type="text"
+          placeholder="Search for any word…"
+        />
+        <img src={SearchSvg} alt="search svg" />
+      </form>
+      <p
+        className={`font-normal text-[16px] text-[#FF5252] ${
+          errorText ? "hidden" : "block"
+        }`}
+      >
+        Whoops, can’t be empty…
+      </p>
+    </div>
   );
 };
 

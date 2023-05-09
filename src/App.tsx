@@ -1,6 +1,7 @@
 import { useState } from "react";
 import HeaderComponent from "./components/Header/HeaderComponent";
 import InputComponent from "./components/InputComponent";
+import Outcome from "./components/Outcome";
 
 export default function App() {
   const [changeInput, setChangeInput] = useState<boolean>(true);
@@ -29,6 +30,7 @@ export default function App() {
         InputSearch={InputSearch}
         setInputSearch={setInputSearch}
       />
+      <Outcome />
     </div>
   );
 }
