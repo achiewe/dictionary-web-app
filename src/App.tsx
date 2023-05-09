@@ -5,6 +5,7 @@ import InputComponent from "./components/InputComponent";
 export default function App() {
   const [changeInput, setChangeInput] = useState<boolean>(true);
   const [switchFont, setSwitchFont] = useState<number>(1);
+  const [InputSearch, setInputSearch] = useState<string>("");
   return (
     <div
       className={`${
@@ -23,7 +24,11 @@ export default function App() {
         switchFont={switchFont}
         setSwitchFont={setSwitchFont}
       />
-      <InputComponent changeInput={changeInput} />
+      <InputComponent
+        changeInput={changeInput}
+        InputSearch={InputSearch}
+        setInputSearch={setInputSearch}
+      />
     </div>
   );
 }
