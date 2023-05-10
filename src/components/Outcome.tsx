@@ -37,11 +37,11 @@ const Outcome = ({
   }
   const [showDefinition, setShowDefinition] = useState<boolean | null>(null);
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col justify-center items-center">
       {showDefinition === true ? (
         <OutcomeAchieve changeInput={changeInput} saveInfo={saveInfo} />
       ) : showDefinition === false ? (
-        <OutcomeError />
+        <OutcomeError changeInput={changeInput} />
       ) : null}
     </div>
   );
