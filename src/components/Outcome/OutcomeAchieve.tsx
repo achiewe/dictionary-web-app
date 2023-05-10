@@ -57,7 +57,13 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
         </h3>
         <div className="w-full flex flex-col gap-[13px]">
           <div className="flex flex-row gap-[20px] justify-start items-start">
-            <div className="bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]" />
+            <div
+              className={
+                saveInfo[0]?.meanings[0]?.definitions[0]?.definition
+                  ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
+                  : "hidden"
+              }
+            />
             <p
               className={`text-[15px] ${
                 changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
@@ -66,6 +72,7 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
               {saveInfo[0]?.meanings[0]?.definitions[0]?.definition}
             </p>
           </div>
+
           <div className="flex flex-row gap-[20px] justify-start items-start">
             <div
               className={
@@ -82,6 +89,7 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
               {saveInfo[0]?.meanings[0]?.definitions[1]?.definition}
             </p>
           </div>
+
           <div className="flex flex-row gap-[20px] justify-start items-start">
             <div
               className={
@@ -99,12 +107,19 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
             </p>
           </div>
         </div>
-        <div className="flex flex-row justify-start items-center gap-[24px]">
+
+        <div
+          className={
+            saveInfo[0]?.meanings[0]?.synonyms[0]
+              ? "flex flex-row justify-start items-center gap-[24px]"
+              : "hidden"
+          }
+        >
           <h3 className="font-normal text-[16px] leading-[19.36px] text-[#757575]">
             Synonyms
           </h3>
           <p className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold">
-            electronic keyboard
+            {saveInfo[0]?.meanings[0]?.synonyms[0]}
           </p>
         </div>
       </div>
@@ -128,26 +143,32 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
         <h3 className="text-[16px] leading-[20.48px] text-[#757575] font-normal">
           Meaning
         </h3>
-        <div className="flex flex-col gap-[13px] justify-start items-center">
-          <div className="flex flex-row gap-[20px] justify-start items-start">
-            <div
-              className={
-                saveInfo[0]?.meanings[0]?.definitions[2]?.definition
-                  ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
-                  : "hidden"
-              }
-            />
+        <div className="flex flex-row gap-[20px] justify-start items-start">
+          <div
+            className={
+              saveInfo[0]?.meanings[0]?.definitions[2]?.definition
+                ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
+                : "hidden"
+            }
+          />
+          <div className="flex w-full flex-col gap-[13px] justify-start items-start">
             <p
               className={`text-[15px] ${
                 changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
               } leading-[24px] font-normal`}
             >
-              {saveInfo[0]?.meanings[0]?.definitions[2]?.definition}
+              {saveInfo[0]?.meanings[1]?.definitions[0]?.definition}
+            </p>
+            <p
+              className={
+                saveInfo[0]?.meanings[1]?.definitions[0]?.example
+                  ? "font-normal text-[15px] text-[#757575] leading-[24px]"
+                  : "hidden"
+              }
+            >
+              {`"${saveInfo[0]?.meanings[1]?.definitions[0]?.example}"`}
             </p>
           </div>
-          <p className="font-normal text-[15px] text-[#757575] leading-[24px]">
-            “Keyboarding is the part of this job I hate the most.”
-          </p>
         </div>
       </div>
       <div className="flex flex-col gap-[24px] w-full justify-start items-center">
