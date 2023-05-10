@@ -26,13 +26,13 @@ const HeaderComponent = ({
     setFont(!font);
   };
   return (
-    <div className="w-full flex flex-row justify-between items-center max-w-[736px]">
+    <div className="w-full flex flex-row justify-between items-center max-w-[375px] md:max-w-[768px]">
       <img
-        className="w-[28.05px] h-[32px]"
+        className="w-[28.05px] h-[32px] md:w-[32px] md:h-[36.5px]"
         src={logoDictionary}
         alt="logo dictionary"
       />
-      <div className="flex flex-row gap-[16px] items-center">
+      <div className="flex flex-row gap-[16px] items-center md:gap-[18px]">
         <div
           onClick={ClickFont}
           className="flex flex-row relative gap-[16px] items-center cursor-pointer"

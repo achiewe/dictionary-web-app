@@ -34,6 +34,7 @@ const Outcome = ({
     }
   }, [InputSearch]);
   if (InputSearch !== "") {
+    console.log(saveInfo[0]?.meanings);
   }
   const [showDefinition, setShowDefinition] = useState<boolean | null>(null);
   return (

@@ -8,7 +8,7 @@ interface Props {
 
 const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
   return (
-    <div className="w-full flex flex-col justify-center items-start gap-[31px]">
+    <div className="w-full flex flex-col justify-center items-start gap-[31px] max-w-[375px]">
       <div className="flex w-full flex-row justify-between items-center ">
         <h2
           className={`font-bold text-[32px] leading-[40.96px] ${
@@ -56,71 +56,51 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           Meaning
         </h3>
         <div className="w-full flex flex-col gap-[13px]">
-          <div className="flex flex-row gap-[20px] justify-start items-start">
-            <div
-              className={
-                saveInfo[0]?.meanings[0]?.definitions[0]?.definition
-                  ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
-                  : "hidden"
-              }
-            />
-            <p
-              className={`text-[15px] ${
-                changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-              } leading-[24px] font-normal`}
-            >
-              {saveInfo[0]?.meanings[0]?.definitions[0]?.definition}
-            </p>
-          </div>
-
-          <div className="flex flex-row gap-[20px] justify-start items-start">
-            <div
-              className={
-                saveInfo[0]?.meanings[0]?.definitions[1]?.definition
-                  ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
-                  : "hidden"
-              }
-            />
-            <p
-              className={`text-[15px] ${
-                changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-              } leading-[24px] font-normal`}
-            >
-              {saveInfo[0]?.meanings[0]?.definitions[1]?.definition}
-            </p>
-          </div>
-
-          <div className="flex flex-row gap-[20px] justify-start items-start">
-            <div
-              className={
-                saveInfo[0]?.meanings[0]?.definitions[2]?.definition
-                  ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
-                  : "hidden"
-              }
-            />
-            <p
-              className={`text-[15px] ${
-                changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
-              } leading-[24px] font-normal`}
-            >
-              {saveInfo[0]?.meanings[0]?.definitions[2]?.definition}
-            </p>
-          </div>
+          {saveInfo[0]?.meanings[0]?.definitions.map(
+            (giga: any, index: any) => (
+              <div
+                className="flex flex-row gap-[20px] justify-start items-start"
+                key={index}
+              >
+                <div
+                  className={
+                    giga?.definition
+                      ? "bg-[#8F19E8] w-[5px] h-[5px] border-none rounded-full mt-[8px]"
+                      : "hidden"
+                  }
+                />
+                <p
+                  className={`text-[15px] ${
+                    changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
+                  } leading-[24px] font-normal`}
+                >
+                  {giga?.definition}
+                </p>
+              </div>
+            )
+          )}
         </div>
 
         <div
           className={
             saveInfo[0]?.meanings[0]?.synonyms[0]
-              ? "flex flex-row justify-start items-center gap-[24px]"
+              ? "flex flex-row flex-wrap justify-start items-center gap-[24px]"
               : "hidden"
           }
         >
           <h3 className="font-normal text-[16px] leading-[19.36px] text-[#757575]">
             Synonyms
           </h3>
-          <p className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold">
-            {saveInfo[0]?.meanings[0]?.synonyms[0]}
-          </p>
+          {saveInfo[0]?.meanings[0]?.synonyms.map(
+            (synonym: [], index: number) => (
+              <p
+                key={index}
+                className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold"
+              >
+                {synonym}
+              </p>
+            )
+          )}
         </div>
       </div>
       <div className="w-full flex flex-row gap-[21px] items-center justify-start">
