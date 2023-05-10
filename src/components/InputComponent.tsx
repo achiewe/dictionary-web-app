@@ -9,7 +9,6 @@ interface Props {
 
 const InputComponent = ({
   changeInput,
-  InputSearch,
   setInputSearch,
 }: Props): JSX.Element => {
   const [errorText, setErrorText] = useState<boolean>(true);
