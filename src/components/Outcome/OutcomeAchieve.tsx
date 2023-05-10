@@ -184,13 +184,14 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
             Source
           </h3>
           <div className="flex flex-row gap-[15px] w-full ">
-            <p
+            <a
               className={`text-[14px] underline leading-[16.94px] ${
                 changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
               } font-normal`}
+              href={saveInfo[0].sourceUrls[0]}
             >
-              https://en.wiktionary.org/wiki/keyboard
-            </p>
+              {saveInfo[0].sourceUrls[0]}
+            </a>
             <img src={NewWindowSvg} alt="new window" />
           </div>
         </div>
