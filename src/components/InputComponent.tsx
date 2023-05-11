@@ -14,7 +14,7 @@ const InputComponent = ({
   const [errorText, setErrorText] = useState<boolean>(true);
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-[8px] w-full max-w-[375px]`}
+      className={`flex flex-col items-start justify-center gap-[8px] w-full max-w-[375px] md:max-w-[768px]`}
     >
       <form
         onSubmit={(e) => {
@@ -26,7 +26,7 @@ const InputComponent = ({
             setErrorText(true);
           }
         }}
-        className={`w-full flex flex-row py-[16px] max-w-[736px] px-[24px] ${
+        className={`w-full flex flex-row py-[16px] max-w-[736px] px-[24px] md:py-[24px] ${
           changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
         } justify-between items-center rounded-[16px] h-[48px] ${
           errorText
@@ -39,7 +39,7 @@ const InputComponent = ({
           id="typeInput"
           className={`${
             changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
-          } border-none outline-none text[16px] bg-none ${
+          } border-none outline-none text-[16px] bg-none md:text-[20px] ${
             changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
           } leading-[20.48px] font-bold placeholder:opacity-[0.25]`}
           type="text"

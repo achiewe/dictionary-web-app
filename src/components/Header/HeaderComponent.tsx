@@ -32,13 +32,13 @@ const HeaderComponent = ({
         src={logoDictionary}
         alt="logo dictionary"
       />
-      <div className="flex flex-row gap-[16px] items-center md:gap-[18px]">
+      <div className="flex flex-row gap-[16px] items-center md:gap-[26px]">
         <div
           onClick={ClickFont}
-          className="flex flex-row relative gap-[16px] items-center cursor-pointer"
+          className="flex flex-row relative gap-[18px] items-center cursor-pointer"
         >
           <h3
-            className={`text-[14px] font-bold leading-[24px] ${
+            className={`text-[14px] font-bold leading-[24px] md:text-[18px] ${
               changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
             }`}
           >
@@ -56,7 +56,7 @@ const HeaderComponent = ({
           />
         </div>
         <div className="w-[1px] h-[32px] bg-[#E9E9E9]"> </div>
-        <div className="flex flex-row gap-[12px] items-center">
+        <div className="flex flex-row gap-[12px] items-center md:gap-[20px]">
           <label
             className={`tablet:ml-[1.625rem] relative inline-block w-[40px] h-[20px] ${
               changeInput ? "bg-[#757575]" : "bg-[#A445ED]"
