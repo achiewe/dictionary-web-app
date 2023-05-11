@@ -28,11 +28,23 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
             autoPlay
             src={saveInfo?.phonetics[0]?.audio}
           />
-          <img
-            className="w-[48px] h-[48px] absolute md:h-[75px] md:w-[75px]"
-            src={IconPlay}
-            alt="icon-play"
-          />
+          <svg
+            className="hover"
+            xmlns="http://www.w3.org/2000/svg"
+            width="75"
+            height="75"
+            viewBox="0 0 75 75"
+          >
+            <g fill="#A445ED" fill-rule="evenodd">
+              <circle
+                className="circle opacity-25 transition-opacity cursor-pointer"
+                cx="37.5"
+                cy="37.5"
+                r="37.5"
+              />
+              <path d="M29 27v21l21-10.5" className="path cursor-pointer" />
+            </g>
+          </svg>
         </div>
       </div>
       <div className="w-full flex flex-row gap-[16px] items-center justify-start md:gap-[32px]">
@@ -52,7 +64,6 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           }`}
         />
       </div>
-
       <div className="w-full flex flex-col gap-[26px] jusitfy-center items-start md:gap-[36px]">
         <h3 className="text-[16px] leading-[20.48px] text-[#757575] font-normal md:text-[20px] md:leading-[20.98px]">
           Meaning
@@ -103,7 +114,6 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           ))}
         </div>
       </div>
-
       <div className="w-full flex flex-row gap-[21px] items-center justify-start md:gap-[32px]">
         <h3
           className={`${
@@ -121,7 +131,6 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           }`}
         />
       </div>
-
       <div className="flex flex-col gap-[17px] items-start justify-center md:gap-[27px]">
         <h3 className="text-[16px] leading-[20.48px] text-[#757575] font-normal md:text-[20px] md:leading-[20.98px]">
           Meaning
@@ -180,7 +189,6 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           ))}
         </div>
       </div>
-
       <div className="flex flex-col gap-[24px] w-full justify-start items-center md:gap-[21px]">
         <hr
           className={`w-full h-[1px]  ${
