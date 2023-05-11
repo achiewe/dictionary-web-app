@@ -107,7 +107,7 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           {saveInfo?.meanings[0]?.synonyms.map((synonym, index) => (
             <p
               key={index}
-              className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold md:text-[20px] md:leading-[20.98px]"
+              className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold md:text-[20px] md:leading-[20.98px] md:cursor-pointer md:hover:underline"
             >
               {synonym}
             </p>
@@ -171,7 +171,7 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
 
         <div
           className={
-            saveInfo?.meanings[1]?.synonyms
+            saveInfo?.meanings[1]?.synonyms[0]
               ? "flex flex-row flex-wrap justify-start items-center gap-[24px] md:gap-[40px]"
               : "hidden"
           }
@@ -182,7 +182,7 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
           {saveInfo?.meanings[1]?.synonyms.map((synonym, index) => (
             <p
               key={index}
-              className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold md:text-[20px] md:leading-[20.98px]"
+              className="text-[#A445ED] text-[16px] leading-[19.36px] font-bold md:text-[20px] md:leading-[20.98px] md:cursor-pointer md:hover:underline"
             >
               {synonym}
             </p>
@@ -207,6 +207,7 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
                 changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
               } font-normal`}
               href={saveInfo?.sourceUrls[0]}
+              target="_blank"
             >
               {saveInfo?.sourceUrls[0]}
             </a>
