@@ -8,7 +8,7 @@ interface Props {
 
 const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
   return (
-    <div className="w-full flex flex-col justify-center items-start gap-[31px] max-w-[375px] md:max-w-[768px] md:gap-[44px]">
+    <div className="w-full flex flex-col justify-center items-start gap-[31px] max-w-[375px] md:max-w-[689px] md:gap-[44px] lg:max-w-[737px]">
       <div className="flex w-full flex-row justify-between items-center ">
         <h2
           className={`font-bold text-[32px] leading-[40.96px] md:text-[64px] md:leading-[67.14px] ${

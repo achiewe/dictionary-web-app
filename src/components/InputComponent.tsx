@@ -14,7 +14,7 @@ const InputComponent = ({
   const [errorText, setErrorText] = useState<boolean>(true);
   return (
     <div
-      className={`flex flex-col items-start justify-center gap-[8px] w-full max-w-[375px] md:max-w-[768px]`}
+      className={`flex flex-col items-start justify-center gap-[8px] w-full max-w-[375px] md:max-w-[689px] lg:max-w-[736px]`}
     >
       <form
         onSubmit={(e) => {
