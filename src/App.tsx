@@ -12,7 +12,7 @@ export default function App() {
     <div
       className={`${
         changeInput ? "bg-[#FFFFFF]" : "bg-[#050505]"
-      } w-full min-h-screen flex-col flex justify-start items-center px-[24px] pt-[24px] pb-[84px] gap-[24px] md:px-[40px] md:pt-[58px] md:pb-[118px] md:gap-[51px] ${
+      } w-full min-h-screen flex-col flex justify-start items-center px-[24px] pt-[24px] pb-[84px] gap-[24px] md:px-[40px] md:pt-[58px] md:pb-[118px] md:gap-[51px] lg:pb-[124px] lg:px-[0] ${
         switchFont === 1
           ? "font-inter"
           : switchFont === 2
