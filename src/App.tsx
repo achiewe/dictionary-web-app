@@ -37,6 +37,7 @@ export default function App() {
         setSaveInfo={setSaveInfo}
         InputSearch={InputSearch}
         changeInput={changeInput}
+        switchFont={switchFont}
       />
     </div>
   );

@@ -9,6 +9,7 @@ interface Props {
   setSaveInfo(saveInfo: any): void;
   InputSearch: string;
   changeInput: boolean;
+  switchFont: number;
 }
 
 const Outcome = ({
@@ -16,6 +17,7 @@ const Outcome = ({
   setSaveInfo,
   InputSearch,
   changeInput,
+  switchFont,
 }: Props): JSX.Element => {
   useEffect(() => {
     const takeWord = async () => {
@@ -35,13 +37,16 @@ const Outcome = ({
     }
   }, [InputSearch]);
   if (InputSearch !== "") {
-    console.log(saveInfo?.phonetics);
   }
   const [showDefinition, setShowDefinition] = useState<boolean | null>(null);
   return (
     <div className="w-full flex flex-col justify-center items-center">
       {showDefinition === true ? (
-        <OutcomeAchieve changeInput={changeInput} saveInfo={saveInfo} />
+        <OutcomeAchieve
+          changeInput={changeInput}
+          saveInfo={saveInfo}
+          switchFont={switchFont}
+        />
       ) : showDefinition === false ? (
         <OutcomeError changeInput={changeInput} />
       ) : null}
