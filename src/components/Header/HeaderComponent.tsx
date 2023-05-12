@@ -28,10 +28,12 @@ const HeaderComponent = ({
   return (
     <div className="w-full flex flex-row justify-between items-center max-w-[375px] md:max-w-[689px] lg:max-w-[736px]">
       <img
-        className="w-[28.05px] h-[32px] md:w-[32px] md:h-[36.5px]"
+        className="w-[28.05px] h-[32px] cursor-pointer md:w-[32px] md:h-[36.5px]"
         src={logoDictionary}
         alt="logo dictionary"
+        onClick={() => window.location.reload()}
       />
+
       <div className="flex flex-row gap-[16px] items-center md:gap-[26px]">
         <div
           onClick={ClickFont}
