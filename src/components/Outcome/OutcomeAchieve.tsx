@@ -1,13 +1,20 @@
 import NewWindowSvg from "../../images/icon-new-window.svg";
 import ObjectTypes from "../../type";
 
-import IconPlay from "../../images/icon-play.svg";
 interface Props {
   changeInput: boolean;
   saveInfo: ObjectTypes | null;
 }
 
 const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
+  const turnOnVoice = () => {
+    const audio = (saveInfo?.phonetics || []).filter((x) => x.audio !== "");
+
+    if (audio.length > 0) {
+      const playAudio = new Audio(audio[0].audio);
+      playAudio.play();
+    }
+  };
   return (
     <div className="w-full flex flex-col justify-center items-start gap-[31px] max-w-[375px] md:max-w-[689px] md:gap-[44px] lg:max-w-[737px]">
       <div className="flex w-full flex-row justify-between items-center ">
@@ -21,13 +28,10 @@ const OutcomeAchieve = ({ changeInput, saveInfo }: Props): JSX.Element => {
             {saveInfo?.phonetic}
           </span>
         </h2>
-        <div className="relative w-[48px] h-[48px] md:w-[75px] md:h-[75px]">
-          <audio
-            className="hidden"
-            controls
-            autoPlay
-            src={saveInfo?.phonetics[0]?.audio}
-          />
+        <div
+          className="relative w-[48px] h-[48px] md:w-[75px] md:h-[75px]"
+          onClick={turnOnVoice}
+        >
           <svg
             className="hover"
             xmlns="http://www.w3.org/2000/svg"

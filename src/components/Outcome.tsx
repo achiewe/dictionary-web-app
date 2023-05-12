@@ -35,7 +35,7 @@ const Outcome = ({
     }
   }, [InputSearch]);
   if (InputSearch !== "") {
-    console.log(saveInfo);
+    console.log(saveInfo?.phonetics);
   }
   const [showDefinition, setShowDefinition] = useState<boolean | null>(null);
   return (
