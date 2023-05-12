@@ -39,13 +39,15 @@ const InputComponent = ({
           id="typeInput"
           className={`${
             changeInput ? "bg-[#F4F4F4]" : "bg-[#1F1F1F]"
-          } border-none outline-none text-[16px] bg-none md:text-[20px] ${
+          } border-none outline-none text-[16px] w-full bg-none md:text-[20px] ${
             changeInput ? "text-[#2D2D2D]" : "text-[#FFFFFF]"
           } leading-[20.48px] font-bold placeholder:opacity-[0.25]`}
           type="text"
           placeholder="Search for any word…"
         />
-        <img src={SearchSvg} alt="search svg" />
+        <button className="w-[15.55px] h-[15.55px] rounded-none" type="submit">
+          <img src={SearchSvg} alt="search svg" />
+        </button>
       </form>
       <p
         className={`font-normal text-[16px] text-[#FF5252] ${
